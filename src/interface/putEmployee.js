@@ -2,7 +2,6 @@ import { url } from './dbConfig';
 
 
 export default function (payload, callback) {
-    payload.email = "temp@deleteme.com"
     let requestURL = `${url}/${payload.id}`
     Object.getOwnPropertyNames(payload).forEach((parameter, i) => {
         requestURL += `${i>0?'&':'?'}${parameter}=${payload[parameter]}`
