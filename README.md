@@ -2,7 +2,7 @@
 
 # Project Summary
 
-In this project we are building a front end for an employee management system.  It should run on any modern browser (post I.E. 8 and similar), and be fully functional, and reasonably styled.  Chrome will be our recommended browser.
+We have the front end ready to utilize an API to interact with a database of employees. We need to make sure that our application is sending the right HTTP requests (per documentation) to do so. An offsite group is working on setting up the interface and database for us though, so we need to create a MOCK API.  For this project we'll be using the open source version of SoapUI. [Download SoapUI here.](https://www.soapui.org/downloads/soapui.html)
 
 ## Current Desired Functionality
 

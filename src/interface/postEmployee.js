@@ -16,5 +16,7 @@ export default function (payload, callback) {
                 callback(null)
         }
     }
+    console.log(url)
+    console.log(payload)
     request.send(JSON.stringify(payload))
 }
