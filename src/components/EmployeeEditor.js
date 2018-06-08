@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import putEmployee from '../interface/putEmployee';
 
 class EmployeeEditor extends Component {
   constructor() {
@@ -21,7 +22,8 @@ class EmployeeEditor extends Component {
   }
 
   componentWillReceiveProps(props) {
-    this.setState({ employee: Object.assign({}, props.selected), originalEmployee: props.selected, notModified: true });
+    if (props.selected)
+      this.setState({ employee: Object.assign({}, props.selected), originalEmployee: props.selected, notModified: true });
   }
 
   handleChange(prop, val) {
@@ -40,8 +42,7 @@ class EmployeeEditor extends Component {
       this.state.originalEmployee.updatePhone(this.state.employee.phone);
       this.state.originalEmployee.updateTitle(this.state.employee.title);
       this.setState({ notModified: true });
-      this.props.refreshList();
-      console.log('updatedFromValid')
+      putEmployee(this.state.originalEmployee, this.props.handleResponse)
     }
     else
       this.forceUpdate();
@@ -71,11 +72,9 @@ class EmployeeEditor extends Component {
     else
       this.titleInvalid = false
     if (this.nameInvalid || this.titleInvalid || this.phoneInvalid) {
-      console.log('invalid')
       return false
     }
     else {
-      console.log('valid')
       return true
     }
   }
@@ -96,6 +95,7 @@ class EmployeeEditor extends Component {
           {
             this.state.employee
               ?
+
               <div>
                 <span name='employeeID' id="employeeID"> ID: {this.state.employee.id} </span>
                 <p name='employeeName' id="employeeTitle"> {this.state.originalEmployee.name} </p>
@@ -116,7 +116,7 @@ class EmployeeEditor extends Component {
 
         </div>
         <div className={this.errorMessage === '' ? "hidden" : "errorCard"}>
-          <span className="errorMessage"> {this.errorMessage.split('\n').map((string, i)=> <div key={i}>{string}</div>)} </span>
+          <span className="errorMessage"> {this.errorMessage.split('\n').map((string, i) => <div key={i}>{string}</div>)} </span>
         </div>
       </div>
     )
