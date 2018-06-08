@@ -9,6 +9,7 @@ You will know your mock API is working fully when you point this application to 
 # API Documentation
 
 *ENDPOINT*
+
 The URL of the API can be provided in the `dbConfig.js` file, at `/src/interface/dbConfig.js`.
 
 *REQUESTS*
@@ -26,7 +27,7 @@ The URL of the API can be provided in the `dbConfig.js` file, at `/src/interface
    - URL: `{endpoingURL}/{idOfEmployeeToEdit}`
    - Body: None
    - Parameters: `id`, `name`, `phone`, `title` with appropriate values
-      * for example: `http://my.api.com/1/?id=1&name="New Employee"&number=1234567890&title="New Employee"` 
+      * for example: `http://my.api.com/1/?id=1&name=New%20Employee&number=1234567890&title=New%20Employee` 
    - Description: This request will edit an already existing employe record - and an array of all employees is then returned.
 
 # Instructions
