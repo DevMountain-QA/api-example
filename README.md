@@ -4,33 +4,34 @@
 
 We have the front end ready to utilize an API to interact with a database of employees. We need to make sure that our application is sending the right HTTP requests (per documentation) to do so. An offsite group is working on setting up the interface and database for us though, so we need to create a MOCK API.  For this project we'll be using the open source version of SoapUI. [Download SoapUI here.](https://www.soapui.org/downloads/soapui.html)
 
-## Current Desired Functionality
+You will know your mock API is working fully when you point this application to it and see the requests logged in the correct format.
 
-The application will load a simulated list of employees, and allow modifications to each.  Clicking the employee from the list to the side will bring their file up in the editor.  Your employee will consist of:
+# API Documentation
 
-* ID        (Whole, positive, and unique number)
-* Name      (1-30 characters long)
-* Phone     (10 digits in length)
-* Title     (1-30 characters long)
+*ENDPOINT*
+The URL of the API can be provided in the `dbConfig.js` file, at `/src/interface/dbConfig.js`.
 
-All fields except for ID are editable.  When saving a change, it will persist as you access other records and navigate back to the desired employee.  The save and cancel buttons will only be accessible when modifications have been made, and the cancel button will revert the employee's file back to the most recently saved version.  Every editable field must be populated to save.
+*REQUESTS*
+* GET
+   - URL: `{endpointURL}/`
+   - No Body or Parameters
+   - Description: This request serves to request a list of employees from the API - an array of the employees is returned.
+* POST
+   - URL: `{endpointURL}/`
+   - Body: `application/json`
+      * for example: `{id: 1, name: 'New Employee', number: 1234567890, title: 'New Employee'}`
+   - Parameters: None
+   - Description: This request serves to add a new record to the database of employees - an array of all employees is then returned.
+* PUT
+   - URL: `{endpoingURL}/{idOfEmployeeToEdit}`
+   - Body: None
+   - Parameters: `id`, `name`, `phone`, `title` with appropriate values
+      * for example: `http://my.api.com/1/?id=1&name="New Employee"&number=1234567890&title="New Employee"` 
+   - Description: This request will edit an already existing employe record - and an array of all employees is then returned.
 
-## Change Log for Version 1.2
+# Instructions
 
-* Error messages fixed
-* Can now save after error is presented
-* Add employee functionality added
-
-## Future Functionality
-
-To be aware of, but not currently implemented
-
-* Phone numbers will be validated 10 digit, area code included, US phone numbers.
-* The Employee List will reside in a database and be accessed through API integration
-* ~An Add Employee function will be implemented~
-* A search function to filter the employee list will be available, based on Job Title, Name, and/or ID
-* An Email Address field will be added for each employee file
-* ~All fields will be required for any entry/modification~
+* Follow your instructor's lead
 
 ## Disclosure
 

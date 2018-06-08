@@ -6,7 +6,7 @@ export default function (payload, callback) {
     request.open('POST', url, true)
     request.setRequestHeader('Content-Type', 'application/json')
     request.onload = () => {
-        if (request.status === 200) {
+        if (request.status === 201) {
             if (callback)
                 callback(JSON.parse(request.response))
         }
@@ -16,7 +16,5 @@ export default function (payload, callback) {
                 callback(null)
         }
     }
-    console.log(url)
-    console.log(payload)
     request.send(JSON.stringify(payload))
 }

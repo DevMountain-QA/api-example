@@ -9,7 +9,7 @@ export default function (payload, callback) {
     let request = new XMLHttpRequest()
     request.open('PUT', requestURL, true)
     request.onload = () => {
-        if (request.status === 200) {
+        if (request.status === 201) {
             if (callback)
                 callback(JSON.parse(request.response))
         }
